@@ -15,7 +15,7 @@ package com.example.school.service;
 import com.example.school.model.Student;
 import com.example.school.model.StudentRowMapper;
 import com.example.school.repository.StudentRepository;
-import com.example.school.repository.StudentRepository;
+//import com.example.school.repository.StudentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,7 +40,7 @@ public class StudentH2Service implements StudentRepository {
         try {
             return db.queryForObject("select*from class studentId=?", new StudentRowMapper(), studentId);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT.FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -58,17 +58,17 @@ public class StudentH2Service implements StudentRepository {
 
     }
 
-   @Override
-   public Student updateStudent(int studentId,Student student){
-    if(student.getStudentName()!=null){
-        db.update("update team set studentName=? where studentId=?",student.getStudentName(),studentId);
-   }
-   if(student.getGender()!=null){
-        db.update("update team set gender=? where studentId=?",student.getGender(),studentId);
-   }
-   if(student.getStandard()!=0){
-        db.update("update team set standard=? where studentId=?",student.getStandard(),studentId);
-   }
-return getStudentById(studentId);
-}
+    @Override
+    public Student updateStudent(int studentId, Student student) {
+        if (student.getStudentName() != null) {
+            db.update("update team set studentName=? where studentId=?", student.getStudentName(), studentId);
+        }
+        if (student.getGender() != null) {
+            db.update("update team set gender=? where studentId=?", student.getGender(), studentId);
+        }
+        if (student.getStandard() != 0) {
+            db.update("update team set standard=? where studentId=?", student.getStandard(), studentId);
+        }
+        return getStudentById(studentId);
+    }
 }

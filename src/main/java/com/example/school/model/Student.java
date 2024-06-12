@@ -22,24 +22,24 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public int getstudentName() {
+    public String getstudentName() {
         return studentName;
     }
 
-    public void setstudentName(int studentName) {
+    public void setstudentName(String studentName) {
         this.studentName = studentName;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public int getGender() {
-        return gender;
+    public int GetStandard() {
+        return standard;
     }
 
     public void setStandard(int standard) {
